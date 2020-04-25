@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  keys: {
+    userKey: 'petShopUser',
+    tokenKey: 'petShopToken',
+    cartKey: 'petShopCart'
+  },
+  apiUrl: 'http://localhost:3000'
 };
 
 /*

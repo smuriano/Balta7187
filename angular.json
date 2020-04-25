@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Balta7187"
+    }
+  },
+  "defaultProject": "Balta7187",
+  "cli": {
+    "analytics": "e670ae60-5ae7-4e07-839d-2ae9f36e3230"
+  }
 }

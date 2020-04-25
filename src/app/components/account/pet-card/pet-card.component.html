@@ -1,0 +1,21 @@
+<div class="uk-card uk-card-default">
+  <div class="uk-card-media-top">
+    <br>
+    <p class="uk-text-center">
+      <img src="{{ pet.photo }}" class="pets-image uk-border-circle" alt="">
+    </p>
+  </div>
+  <div class="uk-card-body">
+    <h3 class="uk-card-title">{{ pet.name }}</h3>
+    <small>Idade: {{ pet.age }}</small><br>
+    <small>Nascimento: {{ pet.birthDate | date: 'dd/MM/yyyy' }}</small><br>
+    <small>Tipo: {{ pet.type }}</small><br>
+    <small>Raça: {{ pet.breed }}</small><br>
+    <p>
+      <a [routerLink]="['/pets']" class="uk-button uk-button-default">
+        <span class="uk-icon uk-margin-small-right" uk-icon="icon: pencil"></span>
+        Editar
+      </a>
+    </p>
+  </div>
+</div>

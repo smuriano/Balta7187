@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { take, delay, tap } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { SecurityUtils } from '../utils/security.util';
@@ -24,15 +25,22 @@ export class DataService {
   }
 
   getProducts() {
-    return this.http.get<Product[]>(`${this.productApi}`);
+    return this.http.get<Product[]>(`${this.productApi}`).pipe(
+      delay(800), // Simular uma demora no retorno da API
+      tap((res: any) => console.log('getProducts:', res))
+    );
   }
 
   getPets() {
-    return this.http.get<Pet[]>(`${this.petApi}`);
+    return this.http.get<Pet[]>(`${this.petApi}`).pipe(
+      delay(800) // Simular uma demora no retorno da API
+    );
   }
 
   authenticate(data) {
-    return this.http.post(`${this.accountApi}/authenticate`, data);
+    return this.http.post(`${this.accountApi}/authenticate`, data).pipe(
+      take(1) // Após a ida ao servidor, já faz o unsubscribe
+    );
   }
 
   refreshToken() {
@@ -40,15 +48,21 @@ export class DataService {
       `${this.accountApi}/refresh-token`,
       null,
       { headers: this.composeHeaders() }
+    ).pipe(
+      take(1)
     );
   }
 
   create(data) {
-    return this.http.post(`${this.accountApi}`, data);
+    return this.http.post(`${this.accountApi}`, data).pipe(
+      take(1)
+    );
   }
 
   resetPassword(data) {
-    return this.http.post(`${this.accountApi}/reset-password`, data);
+    return this.http.post(`${this.accountApi}/reset-password`, data).pipe(
+      take(1)
+    );
   }
 
   getProfile() {
@@ -56,6 +70,8 @@ export class DataService {
   }
 
   updateProfile(data) {
-    return this.http.put(`${this.accountApi}`, data, { headers: this.composeHeaders() });
+    return this.http.put(`${this.accountApi}`, data, { headers: this.composeHeaders() }).pipe(
+      take(1)
+    );
   }
 }

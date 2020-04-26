@@ -1,14 +1,18 @@
-# Dachshop with Angular 9 + HTML5 + CSS3 based in [Balta.io/7187](https://github.com/balta-io/7187)
+# Dachshop with Angular 9, UI Kit and Mockoon API based in [Balta.io/7187](https://github.com/balta-io/7187)
+
+> Updated UI Kit 3.4.2
+> Pets page updated to work with the API
+> Added search on te Products Page
+> Added environment variables
+> Added RxJS operations to improve API calls
+> Added NgTemplate when loading data on pages
+> Added the quantity when include the same product to the cart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -21,7 +25,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

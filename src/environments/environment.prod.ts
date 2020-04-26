@@ -5,5 +5,5 @@ export const environment = {
     tokenKey: 'petShopToken',
     cartKey: 'petShopCart'
   },
-  apiUrl: 'http://localhost:3000'
+  apiUrl: 'http://api.mydomain.com'
 };

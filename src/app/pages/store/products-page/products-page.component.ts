@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { Observable, combineLatest } from 'rxjs';
 
 import { DataService } from './../../../services/data.service';
 import { Product } from 'src/app/models/product.model';
+import { map, filter, debounceTime, distinctUntilChanged, tap, switchMap, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-products-page',
@@ -11,38 +12,19 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ProductsPageComponent implements OnInit {
   public products$: Observable<Product[]> = null;
-  public form: FormGroup;
+  public filteredProducts$: Observable<Product[]> = null;
+  public queryField: FormControl = new FormControl();
+  public queryField$: Observable<string>;
 
-  _filteredProducts$: Observable<Product[]> = null;
-  _filterBy: string;
-
-  constructor(
-    private dataService: DataService,
-    private fb: FormBuilder) {
-    this.form = this.fb.group({
-      search: ['', Validators.compose([
-        Validators.minLength(3),
-        Validators.maxLength(255)
-      ])]
-    });
-  }
+  constructor(private dataService: DataService) { };
 
   ngOnInit(): void {
     this.products$ = this.dataService.getProducts();
+    this.queryField$ = this.queryField.valueChanges.pipe(startWith('')); //Inicia o observable com uma pesquisa em branco;
+
+    this.filteredProducts$ = combineLatest(this.products$, this.queryField$).pipe(
+      map(([products, filter]) =>
+        products.filter(product => product.title.toLocaleLowerCase().indexOf(filter.toLocaleLowerCase()) !== -1))
+    );
   }
-
-  // set searchProduct(value: string) {
-  //   this._filterBy = this.form.get('search').value;
-  //   this._filteredProducts$ = this.products$
-  //     .pipe(
-  //       map(products =>
-  //         products.filter((product: Product) => product.title.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1)
-  //       )
-  //     )
-  //   // this._filteredProducts = this.products$.filter((course: Course) => course.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
-  // }
-
-  // get searchProduct() {
-  //   return this._filterBy;
-  // }
 }

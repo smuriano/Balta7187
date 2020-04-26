@@ -1,4 +1,4 @@
-<div class="uk-container" *ngIf="cart?.items.length > 0">
+<div class="uk-container" *ngIf="cart?.items.length > 0; else cartEmpty">
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav">
@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<div class="uk-container" *ngIf="cart?.items.length == 0">
+<ng-template #cartEmpty class="uk-container">
   <br>
   <br>
   <br>
@@ -55,4 +55,4 @@
   <br>
   <br>
   <br>
-</div>
+</ng-template>

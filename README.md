@@ -1,6 +1,6 @@
 # Dachshop with Angular 9, UI Kit and Mockoon API based in [Balta.io/7187](https://github.com/balta-io/7187)
 
-> Improvements
+## Improvements
 * Updated UI Kit 3.4.2
 * Pets page updated to work with the API
 * Added search on te Products Page

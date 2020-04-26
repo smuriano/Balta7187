@@ -8,8 +8,7 @@
 * Added RxJS operations to improve API calls
 * Added NgTemplate when loading data on pages
 * Added the quantity when include the same product to the cart
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+* Updated this project to Angular 9.1.1.
 
 ## Development server
 

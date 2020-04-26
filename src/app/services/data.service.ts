@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { SecurityUtils } from '../utils/security.util';
 import { Product } from '../models/product.model';
 import { Pet } from '../models/pet.model';
+import { Account } from '../models/account.model';
 
 @Injectable({
   providedIn: 'root'
@@ -55,22 +56,27 @@ export class DataService {
 
   create(data) {
     return this.http.post(`${this.accountApi}`, data).pipe(
+      delay(500),
       take(1)
     );
   }
 
   resetPassword(data) {
     return this.http.post(`${this.accountApi}/reset-password`, data).pipe(
+      delay(5000),
       take(1)
     );
   }
 
   getProfile() {
-    return this.http.get(`${this.accountApi}`, { headers: this.composeHeaders() });
+    return this.http.get<Account>(`${this.accountApi}`, { headers: this.composeHeaders() }).pipe(
+      delay(1200)
+    );
   }
 
   updateProfile(data) {
     return this.http.put(`${this.accountApi}`, data, { headers: this.composeHeaders() }).pipe(
+      delay(500),
       take(1)
     );
   }

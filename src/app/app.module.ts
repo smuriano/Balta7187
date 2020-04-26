@@ -19,6 +19,9 @@ import { MaskDirective } from './directives/mask.directive';
 import { AuthService } from './services/auth.service';
 import { PetsPageComponent } from './pages/account/pets-page/pets-page.component';
 import { PetCardComponent } from './components/account/pet-card/pet-card.component';
+import { ResetPasswordPageComponent } from './pages/account/reset-password-page/reset-password-page.component';
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
+import { SignupPageComponent } from './pages/account/signup-page/signup-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { PetCardComponent } from './components/account/pet-card/pet-card.compone
     LoginPageComponent,
     MaskDirective,
     PetsPageComponent,
-    PetCardComponent
+    PetCardComponent,
+    ResetPasswordPageComponent,
+    ProfilePageComponent,
+    SignupPageComponent
   ],
   imports: [
     BrowserModule,

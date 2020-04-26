@@ -1,12 +1,13 @@
 # Dachshop with Angular 9, UI Kit and Mockoon API based in [Balta.io/7187](https://github.com/balta-io/7187)
 
-> Updated UI Kit 3.4.2
-> Pets page updated to work with the API
-> Added search on te Products Page
-> Added environment variables
-> Added RxJS operations to improve API calls
-> Added NgTemplate when loading data on pages
-> Added the quantity when include the same product to the cart
+> Improvements
+* Updated UI Kit 3.4.2
+* Pets page updated to work with the API
+* Added search on te Products Page
+* Added environment variables
+* Added RxJS operations to improve API calls
+* Added NgTemplate when loading data on pages
+* Added the quantity when include the same product to the cart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
